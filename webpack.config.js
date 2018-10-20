@@ -6,8 +6,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
 	devtool: 'sourcemap',
 	entry: {
-		background: './source/background',
-		options: './source/options'
+		background: './dist/background',
+		options: './dist/options'
 	},
 	output: {
 		path: path.join(__dirname, 'distribution'),
@@ -26,8 +26,8 @@ module.exports = {
 		new CopyWebpackPlugin([
 			{
 				from: '**/*',
-				context: 'source',
-				ignore: '*.js'
+				context: 'src',
+				ignore: '*.ts'
 			},
 			{
 				from: 'node_modules/webextension-polyfill/dist/browser-polyfill.min.js'
