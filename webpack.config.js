@@ -10,7 +10,7 @@ module.exports = {
 		options: './dist/options'
 	},
 	output: {
-		path: path.join(__dirname, 'distribution'),
+		path: path.join(__dirname, 'dist'),
 		filename: '[name].js'
 	},
 	module: {
@@ -33,19 +33,5 @@ module.exports = {
 				from: 'node_modules/webextension-polyfill/dist/browser-polyfill.min.js'
 			}
 		])
-	],
-	optimization: {
-		minimizer: [
-			new UglifyJsPlugin({
-				uglifyOptions: {
-					mangle: false,
-					compress: false,
-					output: {
-						beautify: true,
-						indent_level: 2 // eslint-disable-line camelcase
-					}
-				}
-			})
-		]
-	}
+	]
 };

@@ -1,10 +1,9 @@
 {
 	"private": true,
 	"scripts": {
-		"tsc": "tsc",
 		"lint": "xo && stylelint --fix source/*.css",
 		"test": "npm run lint && cross-env BABEL_ENV=testing ava --verbose && npm run build",
-		"build": "webpack --mode=production",
+		"build": "tsc && webpack --mode=production",
 		"watch": "webpack --mode=development --watch",
 		"release": "npm run build && npm run update-version && webstore upload --source=distribution --auto-publish",
 		"update-version": "VERSION=$(utc-version); echo $VERSION; dot-json distribution/manifest.json version $VERSION"
